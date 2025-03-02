@@ -61,7 +61,7 @@ class Enemy(Sprite):
             start_x = x_end             # Начинаем с правого края
         else:                           # Если движение вправо
             start_x = x_start           # Начинаем с левого края
-        self.goto(start_x, y_start)     # Перемещаем враг в начальную позицию
+        self.goto(start_x, y_start)     # Перемещаем врага в начальную позицию
 
     # Метод выполнения шага движения
     def make_step(self):
@@ -200,7 +200,6 @@ class Game:
         self.text_display.write("Введите количество очков для победы (1-20):",
                             align="center", font=('Arial', 20, 'normal'))
         
-        # ПЕРВАЯ ЧАСТЬ НОВОГО КОДА - РИСОВАНИЕ ПРЯМОУГОЛЬНИКА
         # Рисуем прямоугольное поле ввода
         self.input_box.penup()
         self.input_box.color('black')

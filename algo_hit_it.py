@@ -168,7 +168,8 @@ scr.onkey(player.move_down, 'Down')
 # Флаг окончания игры
 game_over = False
 # Запрашиваем у пользователя количество очков для победы
-score_to_win = int(input("Введите количество очков для победы:"))
+score_to_win = 5
+# score_to_win = int(input("Введите количество очков для победы:"))
 # Запоминаем время начала игры
 start_time = time.time()
 
@@ -212,10 +213,8 @@ def update():
     # Двигаем всех врагов
     for enemy in enemies:
         enemy.make_step()
-
     # Двигаем цель
     goal.make_step()
-
     # Проверяем столкновение игрока с целью
     if player.is_collide(goal):
         # Увеличиваем счет
@@ -228,23 +227,18 @@ def update():
             # Завершаем игру поражением
             end_game('You lose')
             return
-
     # Используем глобальную переменную score_to_win
     global score_to_win
-
     # Проверяем достижение необходимого количества очков
     if player.points >= score_to_win:
         # Завершаем игру победой
         end_game('You win')
         return
-
     # Обновляем экран
     scr.update()
     # Планируем следующее обновление через 10 миллисекунд
     scr.ontimer(update, 10)
-
 # Запускаем первое обновление игры
 update()
-
 # Запускаем главный цикл игры
 scr.mainloop()
